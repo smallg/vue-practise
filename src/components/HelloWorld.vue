@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import { ref } from "vue";
-const count = ref(0);
+import { useCounterStore } from '../stores/counter'
+const counterStore = useCounterStore();
+const resetCount = () => {
+  counterStore.$reset();
+}
 </script>
 
 <template>
   <div class="my-2 text-center flex flex-wrap justify-center items-center">
-    <el-button @click="count++">count is: {{ count }}</el-button>
-    <el-button type="primary" @click="count++">count is: {{ count }}</el-button>
-    <el-button type="success" @click="count++">count is: {{ count }}</el-button>
-    <el-button type="warning" @click="count++">count is: {{ count }}</el-button>
-    <el-button type="danger" @click="count++">count is: {{ count }}</el-button>
-    <el-button type="info" @click="count++">count is: {{ count }}</el-button>
+    <el-button @click="counterStore.increment">count is: {{ counterStore.count }}</el-button>
+    <el-button type="primary" @click="counterStore.increment">doubleCount is: {{ counterStore.doubleCount }}</el-button>
+    <el-button type="warning" @click="resetCount()">Reset counter store</el-button>
   </div>
 </template>
 
