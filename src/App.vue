@@ -1,27 +1,33 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
   <el-config-provider namespace="ep">
     <BaseHeader />
-    <div style="display: flex">
+    <div class="main-container">
       <BaseSide />
-      <div>
-        <HelloWorld msg="Hello Vue 3.0 + Element Plus + Vite" />
+      <div class="right-container">
+        <RouterView />
       </div>
     </div>
   </el-config-provider>
-
-      <!-- <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav> -->
-  <!-- <RouterView /> -->
+  <!-- <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/about">About</RouterLink>
+  </nav> -->
 </template>
 
 <style scoped>
+.main-container {
+  display: flex;
+  height: calc(100vh - 59px);
+}
+
+.right-container {
+  width: calc(100vw - 63px);
+}
+
 header {
   line-height: 1.5;
   max-height: 100vh;
